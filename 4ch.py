@@ -1,20 +1,17 @@
-# def intro2():
-#     try:
-#         x = input("Say \'Hi\' or \'Hello\' to continue...")
-#         y = ('Saimon said: \'Hi\' or \'Hello\'')
-#         if (x == "hi" or x == 'Hi' or x == 'hello' or x =='Hello'):   #zrób żeby intro 2
-#             pass
-#         else:
-#             print(y)
-#             intro()
-#     except SyntaxError:
-#         pass
-#
-#
-# intro2()
-import numpy
 
-# ToDo Poprawić
+def intro2():
+    try:
+        x = input("Say \'Hi\' or \'Hello\' to continue...")
+        y = ('Saimon said: \'Hi\' or \'Hello\'' + '\n')
+        if x == "hi" or x == 'Hi' or x == 'hello' or x =='Hello':   #zrób żeby intro 2
+            pass
+        else:
+            print(y)
+            intro2()
+    except SyntaxError:
+        pass
+
+
 def intro():
     print("     Welcome You." + '\n')
     print("Your task is simple. PC will generate a random number from 1 to 100.")
@@ -29,7 +26,7 @@ def intro():
             pass
         else:
             print(y)
-            # intro2()
+            intro2()
     except SyntaxError:
         pass
 
@@ -53,7 +50,7 @@ try:
     login = file2.read()
 finally:
     file2.close()
-print("Welcom " + login)
+print("Welcome " + login)
 
 
 def randomer():
@@ -64,7 +61,7 @@ def randomer():
         try:
             global cx
             print(i)
-            cx = int(input("Gimme first number please:"))
+            cx = int(input("Gimme your first number please:"))
             break
         except:
             print("That wasn't a number. Please try some number.")
@@ -86,10 +83,10 @@ score_list = 63
 attempts = 9
 for j in range(9):
     if cx == i:
-        # if attempts == 9:
-        #     print('Congratulations')
-        #     print("Score: " + str(scorelist +7) + 'pt' + "\n")
-        #     break
+        if attempts == 9:
+            print('Congratulations')
+            print("Score: " + str(score_list +7) + 'pt' + "\n")
+            break
         print("Congratulations")
         print("Score: " + str(score_list) + 'pt' + "\n")
         break
@@ -110,13 +107,13 @@ for j in range(9):
             attempts = attempts - 1
             print('Attempts left: ' + str(attempts) + '\n')
 if i == cx:
-    #     if attempts == 9:
-    #         print('Your score is: ' + str(scorelist +7) + 'pt')
-    #         thing = ('Player: ' + str(login) + '        Score: ' + str(scorelist +7) + 'pt' + '\n' '\n')
-    #         if attempts < 10:
-    print("Correct answer was: " + str(i) + "\n")
-    print('Your score is: ' + str(score_list) + 'pt')
-    thing = ('Player: ' + str(login) + '        Score: ' + str(score_list) + 'pt' + '\n' '\n')
+        if attempts == 9:
+            print('Your score is: ' + str(score_list +7) + 'pt')
+            thing = ('Player: ' + str(login) + '        Score: ' + str(score_list +7) + 'pt' + '\n' '\n')
+        if attempts < 9:
+            print("Correct answer was: " + str(i) + "\n")
+            print('Your score is: ' + str(score_list) + 'pt')
+            thing = ('Player: ' + str(login) + '        Score: ' + str(score_list) + 'pt' + '\n' '\n')
 
 if i != cx:
     print("You loose")
@@ -133,12 +130,14 @@ file.close()
 def scoreboard():
     x = input('Do You want to see scoreboard? Y/N?' + '\n')
     if x == 'Y' or x == 'y':
-        # if attempts == 9:
-        #     print('jeeeebać')   #niew iem czemu nie działa
-        #     print("You: " + str(login) + "With: " + str(scorelist +7) + 'pt')
-        scorebrd = open('data to scoreboard').read()
-        print(scorebrd)
-        print("You: " + str(login) + "With: " + str(score_list) + 'pt')
+        if attempts == 9:
+            scorebrd = open('data to scoreboard').read()
+            print(scorebrd)
+            print("You: " + str(login) + "With: " + str(score_list +7) + 'pt')
+        if attempts < 9:
+            scorebrd = open('data to scoreboard').read()
+            print(scorebrd)
+            print("You: " + str(login) + "With: " + str(score_list) + 'pt')
     if x == 'N' or x == 'n':
         print('Thanks for plaing!')
     else:
